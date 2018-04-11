@@ -8,6 +8,7 @@ This is a repository holding all the information contained in my senior project 
 
 Here are some interesting plots I've made:
 
+![](final_plots/recession_pretty.png)
 ![](final_plots/us_recession.png)
 ![](final_plots/time_series.png)
 ![](final_plots/histogram_plots.png)
