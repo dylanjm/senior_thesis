@@ -1,6 +1,7 @@
 library(tidyverse)
 library(patchwork)
 library(here)
+library(ggthemes)
 
 # Data we'll need for visualization
 raw.dat <- read_rds(here::here("raw_data/initial_raw.rds"))
@@ -150,3 +151,14 @@ nn.training.dat %>%
   labs(title = "Neural Network Training & Validation Performance",
        x = "Epoch", y = "Value") +
   theme_classic()
+
+raw.dat %>% 
+  ggplot(aes(x = date, y = 1, fill = recession)) + 
+  geom_tile(color = "#465573") + 
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  scale_fill_gradient(low = "#465573", high = "yellow") + 
+  guides(fill = FALSE) + 
+  labs(title = "United State Recessions since 1967") + 
+  theme_fivethirtyeight() + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.text.y = element_blank())
